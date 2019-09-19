@@ -4,6 +4,4 @@ services:
   - docker
   script:
    - docker build . -y website
-deploy:
-  provider: script
-  script: bash docker_push
+   - bash docker_push
