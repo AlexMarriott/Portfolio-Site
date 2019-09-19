@@ -3,5 +3,5 @@ language: python
 services:
   - docker
 script:
-   - docker build . -t website
+   - docker build . -t ghetyman/website
    - bash docker_push
