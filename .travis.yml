@@ -3,8 +3,10 @@ language: python
 services:
   - docker
 
-  script: bash docker build
+  script:
    - docker build . -y website
 deploy:
-  prodvider: script
+  provider: script
   script: bash docker_push
+  on:
+    branch: master
