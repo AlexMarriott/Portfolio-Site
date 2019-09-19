@@ -1,0 +1,10 @@
+language: python
+
+services:
+  - docker
+
+  script: bash docker build
+   - docker build . -y website
+deploy:
+  prodvider: script
+  script: bash docker_push
