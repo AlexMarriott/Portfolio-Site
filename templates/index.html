@@ -1,11 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Alex Website</title>
-</head>
+{% extends "layout.html" %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
 <body>
-    <h1>My site</h1>
-    <p>My site</p>
+{% block aboutme %}
+{{ super() }}
+{% endblock %}
+{% block body %}
+{{ super() }}
+
+</div>
 </body>
+{% endblock %}
+
 </html>

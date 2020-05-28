@@ -9,26 +9,18 @@
     <title></title>
   </head>
   <body>
-    <table class="table table-striped">
-  <thead>
+    <table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th scope="col">SubnetID</th>
-      <th scope="col">Device</th>
-      <th scope="col">Ip Address</th>
-      <th scope="col">SubnetMask</th>
-      <th scope="col">Default Gateway</th>
-      <th scope="col">Vlan</th>
+      <th scope="col">VlanID</th>
+      <th scope="col">VlanDescription</th>
     </tr>
   </thead>
   <tbody>
   {% for index, entry in csv.iterrows() %}
     <tr>
-      <th scope="row">{{ entry['SubnetID'] }}</th>
-      <td>{{ entry['Device']}}</td>
-      <td>{{ entry['Ip Address'] }}</td>
-      <td>{{ entry['SubnetMask'] }}</td>
-        <td>{{ entry['Default Gateway'] }}</td>
-        <td>{{ entry['Vlan'] }}</td>
+      <th scope="row">{{ entry['VlanID'] }}</th>
+      <td>{{ entry['VlanDescription']}}</td>
     </tr>
   {% endfor %}
   </tbody>
