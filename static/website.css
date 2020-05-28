@@ -8,7 +8,7 @@ html {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1300px;
 }
 
 .pricing-header {
@@ -33,7 +33,14 @@ html {
         }
       }
 
-.display-4{
-  padding-top: 200px;
-  margin-top: 200px;
+.projects{
+  padding-top: 25px;
+  width: auto;
+}
+.display-4 {
+  text-align: center;
+  padding-bottom: 50px;
+}
+.rounded-circle{
+  padding: 35px 35px;
 }

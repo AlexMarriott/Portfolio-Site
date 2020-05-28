@@ -3,6 +3,12 @@ services:
   web:
     build: .
     ports:
-    - "80:80"
+      - "80:80"
   postgres:
     image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: alex
+      POSTGRES_DB: blog
+      POSTGRES_PASSWORD: VQeUuc9NmneULQEGdPcEckhg
