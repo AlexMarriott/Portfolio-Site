@@ -1,20 +1,43 @@
 <!doctype html>
 <html lang="en">
 {% extends "layout.html" %}
-
+<head>
 {% block head %}
 {{ super() }}
 {% endblock %}
+</head>
 
 <body>
-{% block aboutme %}
+{% block nav %}
 {{ super() }}
-{% endblock %}
-{% block body %}
-{{ super() }}
-
+<div class="aboutme-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center border-bottom">
+  <h1 class="display-3">About Me</h1>
+        <img class="rounded-circle" src="static/alex.jpg" style="user-select: auto;" width="400" height="400" alt="alex">
+    <p class="lead">I'm Alex Marriott, a Junior DevOps Engineer working remotely from Bournemouth UK.</p>
+<p class="lead">This website acts as a personal Blog/CV/Place to store my personal projects and link my github repos.</p>
 </div>
-</body>
+
+<div class="projects container">
+      <h1 class="display-4">Projects</h1>
+    {% for project in github_projects %}
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{ project['repo_name'] }}</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+           <li>{{ project['readme'] }}</li>
+        </ul>
+        <button type="button" class="btn btn-lg btn-block btn-primary" onclick="window.location.href='{{ url_for('project', repo_name=project['repo_name']) }}'">View</button>
+      </div>
+    </div>
+            {% endfor %}
+  </div>
+</div>
+</div>
 {% endblock %}
+</body>
+
 
 </html>

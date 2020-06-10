@@ -1,10 +1,10 @@
-FROM alpine
+FROM ubuntu
 WORKDIR /
 ENV FLASK_APP app.py
 ENV FLASK_RUN_HOST 0.0.0.0
 ENV FLASK_RUN_PORT 80
-RUN apk update && apk add --update \
-    python3
+
+RUN apt update && apt install -y python3 python3-pip
 
 COPY . .
 RUN pip3 install -r requirements.txt

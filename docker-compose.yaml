@@ -1,14 +1,18 @@
 version: '3'
 services:
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: alex
+      MONGO_INITDB_ROOT_PASSWORD: VQeUuc9NmneULQEGdPcEckhg
+      MONGO_INITDB_DATABASE: projects
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   web:
     build: .
     ports:
       - "80:80"
-  postgres:
-    image: "postgres"
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: alex
-      POSTGRES_DB: blog
-      POSTGRES_PASSWORD: VQeUuc9NmneULQEGdPcEckhg
+    links:
+      - "mongo:database"

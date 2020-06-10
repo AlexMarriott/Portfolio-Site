@@ -44,3 +44,9 @@ html {
 .rounded-circle{
   padding: 35px 35px;
 }
+li {
+   width: 250px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
