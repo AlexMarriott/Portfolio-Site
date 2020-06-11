@@ -1,12 +1,12 @@
 from pymongo import MongoClient
-
+import os
 def populate_database(projects):
     pass
 
 class DataBase:
     def __init__(self, database=None, projects=None):
-        self.client = MongoClient("mongo", username="",
-                                  password="", port=27017)
+        self.client = MongoClient("mongo", username="alex",
+                                  password=os.getenv("MONGO_INITDB_ROOT_PASSWORD"), port=27017)
         if database is not None:
             self.db = self.client[database]
         else:
@@ -16,8 +16,6 @@ class DataBase:
             project = self.db.project
             prepared_projects = self.prepare_projects(projects)
             for i in range(len(prepared_projects)):
-                print("blah")
-                print(prepared_projects)
                 if not self.check_project_exists(prepared_projects[i]["repo_name"]):
                     result = project.insert_one(prepared_projects[i])
                     print('single posts: {0}'.format(result))

@@ -4,16 +4,14 @@ import os
 import pandas
 import config
 import markdown2
-import html
+
 from database import DataBase
 
 def get_github_repos():
     repos = []
     for repo in github.get_user().get_repos(visibility="public"):
-        print(repo.name)
         try:
             contents = repo.get_contents("README.md")
-            print(repo.url)
             repos.append(dict({"repo_name": repo.name, "readme": contents.decoded_content.decode("utf-8"),
                                "repo_url": repo.url}))
         except UnknownObjectException as e:
@@ -21,7 +19,7 @@ def get_github_repos():
     return repos
 
 
-github = Github("")
+github = Github(os.getenv("GITHUB_TOKEN"))
 app = Flask(__name__)
 app.config.from_object(config)
 github_projects = get_github_repos()
@@ -61,4 +59,4 @@ def vlans():
     return render_template('vlans.html', csv=df)
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port='5000')
+    app.run(host='0.0.0.0', port='80')
