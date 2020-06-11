@@ -9,7 +9,7 @@ git remote add deploy ssh://git@$IP:$PORT$DEPLOY_DIR
 git push deploy master
 
 # Skip this command if you don't need to execute any additional commands after deploying.
-ssh apps@$IP -p $PORT <<EOF
+ssh -tt apps@$IP -p $PORT <<EOF
   cd $DEPLOY_DIR
   export MONGO_INITDB_ROOT_PASSWORD=$MONGO_INITDB_ROOT_PASSWORD
   export GITHUB_TOKEN=$GITHUB_TOKEN
