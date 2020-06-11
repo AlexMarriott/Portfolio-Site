@@ -1,6 +1,9 @@
 language: python
 services:
 - docker
+addons:
+  ssh_known_hosts:
+  - 64.227.38.190
 before_install:
 - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
   -in .travis/id_rsa.enc -out id_rsa -d
