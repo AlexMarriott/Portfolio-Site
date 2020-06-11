@@ -31,8 +31,8 @@ db_client = DataBase(database="projects", projects=github_projects)
 @app.route('/')
 def index():
     print("print projects")
-    for i in github_projects:
-        print(i)
+    for i in range(len(github_projects)):
+        github_projects[i]['readme'] = markdown2.markdown(github_projects[i]['readme'])
     return render_template('index.html', github_projects=github_projects)
 
 @app.route("/project/<repo_name>")
@@ -61,4 +61,4 @@ def vlans():
     return render_template('vlans.html', csv=df)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')
+    app.run(host='127.0.0.1', port='5000')
