@@ -6,9 +6,9 @@ services:
       - "27017:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: alex
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD_PARAM}
+      MONGO_INITDB_ROOT_PASSWORD: ${DATABASE_PW}
       MONGO_INITDB_DATABASE: projects
-      GITHUB_TOKEN: ${GITHUB_TOKEN_PARAM}
+      GITHUB_TOKEN: ${SCM_PW}
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   web:
