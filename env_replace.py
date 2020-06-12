@@ -12,8 +12,8 @@ with open("docker-compose.yaml", 'r') as stream:
         print(exc)
 
 # Modify the fields from the dict
-for i in loaded['env_variables']:
-    loaded['env_variables'][i] = os.environ[i]
+for i in loaded['environment']:
+    loaded['environment'][i] = os.environ[i]
 
 
 # Save it again
