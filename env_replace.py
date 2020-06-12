@@ -20,7 +20,7 @@ mongo_file = mongo_file.replace('MONGO_INITDB_ROOT_PASSWORD', mongo_pw)
 with open('mongo-init.js', 'w') as f:
   f.write(mongo_file)
 
-#Replace variables in evn file.
+"""#Replace variables in evn file.
 with open('.env', 'r') as file :
   env_file = file.read()
 
@@ -29,4 +29,4 @@ env_file = env_file.replace('MONGO_INITDB_ROOT_PASSWORD', mongo_pw).replace('GIT
 
 # Write the file out again
 with open('.env', 'w') as file:
-  file.write(env_file)
+  file.write(env_file)"""

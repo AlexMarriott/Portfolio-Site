@@ -6,7 +6,7 @@ def populate_database(projects):
 class DataBase:
     def __init__(self, database=None, projects=None):
         self.client = MongoClient("mongo", username="alex",
-                                  password=os.getenv("MONGO_INITDB_ROOT_PASSWORD"), port=27017)
+                                  password=os.environ["MONGO_INITDB_ROOT_PASSWORD"], port=27017)
         if database is not None:
             self.db = self.client[database]
         else:

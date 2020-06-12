@@ -16,8 +16,8 @@ cd $DEPLOY_DIR
 exec 3>&1 4>&2
 trap 'exec 2>&4 1>&3' 0 1 2 3
 exec 1>log.out 2>&1
-echo $GITHUB_TOKEN
-echo $MONGO_INITDB_ROOT_PASSWORD
+#echo $GITHUB_TOKEN
+#echo $MONGO_INITDB_ROOT_PASSWORD
 
   python3 env_replace.py $MONGO_INITDB_ROOT_PASSWORD $GITHUB_TOKEN
   docker-compose down && docker-compose up &
