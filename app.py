@@ -19,7 +19,7 @@ def get_github_repos():
     return repos
 
 
-github = Github(os.getenv("GITHUB_TOKEN"))
+github = Github(os.environ["GITHUB_TOKEN"])
 app = Flask(__name__)
 app.config.from_object(config)
 github_projects = get_github_repos()
