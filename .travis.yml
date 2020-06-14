@@ -8,7 +8,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
   -in .travis/id_rsa.enc -out id_rsa -d
 script:
-  - docker build -t ghetyman/website:latest --build-arg GITHUB_TOKEN=$GITHUB_TOKEN --build-arg MONGO_INITDB_ROOT_PASSWORD=$MONGO_INITDB_ROOT_PASSWORD .
+  - docker build -t ghetyman/website:latest --build-arg GITTOKEN=$GITHUB_TOKEN --build-arg MONGOPASSWORD=$MONGO_INITDB_ROOT_PASSWORD .
   - bash docker_push
   - python3 env_replace.py $MONGO_INITDB_ROOT_PASSWORD
   - bash deploy.sh
