@@ -13,6 +13,6 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      - "5000:5000"
     links:
       - "mongo:database"
