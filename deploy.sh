@@ -11,5 +11,5 @@ git push deploy master
 # Skip this command if you don't need to execute any additional commands after deploying.
 ssh -tt app@$IP -p $PORT <<EOF
   cd $DEPLOY_DIR
-  docker-compose down && docker-compose up -d
+  docker-compose down && docker rmi $(docker images |grep 'my-site_web') && docker rm $(docker ps -a -f status=exited -q) && docker-compose up -d
 EOF
