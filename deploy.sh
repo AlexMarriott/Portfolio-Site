@@ -12,4 +12,5 @@ git push deploy master
 ssh -tt app@$IP -p $PORT <<EOF
   cd $DEPLOY_DIR
   docker-compose down && docker-compose up &
+  docker ps
 EOF
