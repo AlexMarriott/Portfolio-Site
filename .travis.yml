@@ -10,4 +10,5 @@ before_install:
 script:
   - docker build . -t ghetyman/website
   - bash docker_push
+  - python3 env_replace.py $MONGO_INITDB_ROOT_PASSWORD
   - bash deploy.sh
