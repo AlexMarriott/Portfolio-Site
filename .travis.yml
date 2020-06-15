@@ -8,6 +8,7 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
   -in .travis/id_rsa.enc -out id_rsa -d
 script:
-  - docker build . -t ghetyman/website
+  - docker build -t ghetyman/website:latest .
   - bash docker_push
+  - python3 env_replace.py $MONGO_INITDB_ROOT_PASSWORD
   - bash deploy.sh
