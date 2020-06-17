@@ -14,5 +14,5 @@ ssh -tt app@$IP -p $PORT <<EOF
   docker-compose down
   docker rmi $(docker images |grep 'my-site_web') || true
   docker rm $(docker ps -a -f status=exited -q) || true
-  docker-compose up -d
+  docker-compose up --build
 EOF
