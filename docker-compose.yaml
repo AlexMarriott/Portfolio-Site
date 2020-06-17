@@ -15,7 +15,7 @@ services:
   web:
     build: .
     ports:
-      - "80"
+      - "443"
     #  - "8081:5001"
     links:
       - "mongo:database"
