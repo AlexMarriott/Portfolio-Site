@@ -4,3 +4,4 @@ PyGithub
 pandas
 markdown2
 pyyaml
+pyopenssl

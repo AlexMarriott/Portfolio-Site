@@ -58,4 +58,4 @@ def vlans():
     return render_template('vlans.html', csv=df)
 
 if __name__ == '__main__':
-    app.run(host=os.environ['FLASK_RUN_HOST'], port="80")
+    app.run(host=os.environ["FLASK_RUN_HOST"], port="80", ssl_context="adhoc")

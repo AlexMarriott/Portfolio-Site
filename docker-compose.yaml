@@ -30,12 +30,18 @@ services:
     volumes:
       - ./nginx/default.conf:/etc/nginx/nginx.conf
       - ./nginx/error.log:/etc/nginx/error_log/error.log
-      - ./nginx/cache/:/etc/nginx/cache
-      - ./certs/:/etc/letsencrypt/
+      - ./nginx/cache:/etc/nginx/cache
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     ports:
       - 80:80
       - 443:443
     networks:
       - docker-network
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
 networks:
   docker-network:
