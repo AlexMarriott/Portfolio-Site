@@ -6,7 +6,7 @@ The site uses the following technology stack:
 * Docker-compose
 * Python3 flask container
 * Mongo DB container
-* Nginx container (reverse  proxy for flask container)
+* Nginx container (a reverse  proxy for flask container)
 * Github API (PyGitHub library) to pull project READMEs
 
 The project is linked to a TravisCI  job which auto deploys the code to a remote server and deploys
