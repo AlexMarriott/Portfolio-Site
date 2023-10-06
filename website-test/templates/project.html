@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+{% extends "layout.html" %}
+<head>
+{% block head %}
+{{ super() }}
+{% endblock %}
+</head>
+<body>
+{% block nav %}
+{{ super() }}
+<div class="aboutme-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center border-bottom">
+  {{ readme|safe }}
+</div>
+{% endblock %}
+</body>
+</html>

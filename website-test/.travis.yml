@@ -1,0 +1,12 @@
+language: python
+services:
+- docker
+addons:
+  ssh_known_hosts:
+  - $remote_server
+before_install:
+- openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
+  -in .travis/id_rsa.enc -out id_rsa -d
+script:
+  - python3 env_replace.py $MONGO_INITDB_ROOT_PASSWORD
+  - bash deploy.sh
