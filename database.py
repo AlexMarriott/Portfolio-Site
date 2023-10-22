@@ -5,7 +5,7 @@ def populate_database(projects):
 
 class DataBase:
     def __init__(self, database=None, projects=None):
-        self.client = MongoClient("mongo", username="root",
+        self.client = MongoClient("mongo", username=os.environ['MONGO_INITDB_ROOT_USERNAME'],
                                   password=os.environ["MONGO_INITDB_ROOT_PASSWORD"], port=27017)
         if database is not None:
             self.db = self.client[database]
@@ -54,7 +54,7 @@ class DataBase:
 
     def check_project_exists(self, project_name):
         project_collection = self.db.project
-        if project_collection.find({"repo_name": project_name}).count() > 0:
+        if project_collection.count_documents({"repo_name": project_name}) > 0:
             return True
         else:
             return False

@@ -17,7 +17,7 @@ def get_github_repos():
             print(e)
     return repos
 
-github = Github(os.environ["GITHUB_TOKEN"])
+github = Github(os.environ["BUILD_GITHUB_TOKEN"])
 app = Flask(__name__)
 github_projects = get_github_repos()
 db_client = DataBase(database="projects", projects=github_projects)
